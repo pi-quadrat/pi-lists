@@ -1,0 +1,9 @@
+.tmp/
+.db4s/
+.node/
+node_modules/
+dist/
+logs/
+.npm
+*.log
+npm-debug.log*
