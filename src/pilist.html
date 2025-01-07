@@ -6,9 +6,6 @@
     <% if (htmlWebpackPlugin.options.baseHref) { %>
     <base href="<%= htmlWebpackPlugin.options.baseHref %>">
     <% } %>
-    <!-- SCM Music Player http://scmplayer.net -->
-    <script type="text/javascript" src="http://scmplayer.net/script.js" 
-    data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle':false,'repeat':1,'placement':'top','showplaylist':false,'playlist':[{'title':'Jeunesse l%E8ve-toi!','url':'https://www.youtube.com/watch?v=0fDpgWXTX9g'},{'title':'Lointaine','url':'https://www.youtube.com/watch?v=CcXkaQgt72U'},{'title':'Paranoid eyes','url':'https://www.youtube.com/watch?v=DYyysA36hKs'},{'title':'Idiotheque','url':'https://www.youtube.com/watch?v=E7hvGPLexL0'}]}" ></script>
     <!-- inline styles -->
     <style>
       body {
@@ -17,11 +14,8 @@
     </style>
   </head>
   <body>
-    <!-- just for debugging -->
-    <ul>
-      <% for (var i in htmlWebpackPlugin.options.songs) { %>
-      <li><%= htmlWebpackPlugin.options.songs[i].titel %></li>
-      <% } %>
-    </ul>
+    <!-- SCM Music Player http://scmplayer.net -->
+    <script type="text/javascript" src="http://scmplayer.net/script.js" 
+    data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle':false,'repeat':1,'placement':'top','showplaylist':false,'playlist':<%= htmlWebpackPlugin.options.songs %>}" ></script>
   </body>
 </html>

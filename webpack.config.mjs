@@ -16,6 +16,13 @@ function query(db, stmt, params) {
   );
 }
 
+function createPlaylistString(pilist) {
+  const object = pilist.songs.map(song => ({ url: song.url, title: `${song.kuenstler} - ${song.titel}`}));
+  const json = JSON.stringify(object);
+  const singleQuoted = json.replaceAll("\"", "'");
+  return singleQuoted;
+}
+
 const data = await sqlJs({
   locateFile: (file) => `node_modules/sql.js/dist/${file}`,
 }).then((sql) => {
@@ -77,8 +84,8 @@ export default {
           filename: pilist.meta.url + "/index.html",
           title: pilist.meta.name,
           template: "./src/pilist.html",
-          background: "./test.gif", //pilist.meta.hintergrund,
-          songs: pilist.songs,
+          background: pilist.meta.hintergrund,
+          songs: createPlaylistString(pilist),
         })
     ),
     new CopyWebpackPlugin({
