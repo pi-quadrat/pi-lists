@@ -48,7 +48,7 @@ const data = await sqlJs({
 });
 
 export default {
-  entry: "./src/index.ts",
+  entry: {},
   module: {
     rules: [
       {
@@ -93,7 +93,6 @@ export default {
     }),
   ],
   output: {
-    filename: "bundle.js",
     path: _resolve(import.meta.dirname, "dist"),
     clean: true,
   },
