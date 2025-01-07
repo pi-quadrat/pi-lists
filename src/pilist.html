@@ -2,14 +2,26 @@
 <html>
   <head>
     <title><%= htmlWebpackPlugin.options.title %></title>
-
+    <!-- baseHref -->
+    <% if (htmlWebpackPlugin.options.baseHref) { %>
+    <base href="<%= htmlWebpackPlugin.options.baseHref %>">
+    <% } %>
     <!-- SCM Music Player http://scmplayer.net -->
     <script type="text/javascript" src="http://scmplayer.net/script.js" 
     data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle':false,'repeat':1,'placement':'top','showplaylist':false,'playlist':[{'title':'Jeunesse l%E8ve-toi!','url':'https://www.youtube.com/watch?v=0fDpgWXTX9g'},{'title':'Lointaine','url':'https://www.youtube.com/watch?v=CcXkaQgt72U'},{'title':'Paranoid eyes','url':'https://www.youtube.com/watch?v=DYyysA36hKs'},{'title':'Idiotheque','url':'https://www.youtube.com/watch?v=E7hvGPLexL0'}]}" ></script>
-    <!-- SCM Music Player script end -->
+    <!-- inline styles -->
+    <style>
+      body {
+        background-image: url('<%= htmlWebpackPlugin.options.background %>');
+      }
+    </style>
   </head>
-  <body background="url('https://upload.wikimedia.org/wikipedia/commons/4/4e/FILE_Rio_de_Janeiro_2018_-_A_Arte_Eletr%C3%B4nica_na_%C3%89poca_Disruptiva%2C_Festival_Internacional_de_Linguagem_Eletr%C3%B4nica.gif')">
-    <div id="root"></div>
-    <%= htmlWebpackPlugin.songs %>
+  <body>
+    <!-- just for debugging -->
+    <ul>
+      <% for (var i in htmlWebpackPlugin.options.songs) { %>
+      <li><%= htmlWebpackPlugin.options.songs[i].titel %></li>
+      <% } %>
+    </ul>
   </body>
 </html>

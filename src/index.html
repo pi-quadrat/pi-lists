@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pilists Overview</title>
+    <!-- baseHref -->
+    <% if (htmlWebpackPlugin.options.baseHref) { %>
+    <base href="<%= htmlWebpackPlugin.options.baseHref %>">
+    <% } %>
+  </head>
+  <body>
+    <ul>
+      <% for (var i in htmlWebpackPlugin.options.pilists) { %>
+      <li><a href="<%= htmlWebpackPlugin.options.pilists[i].url %>"><%= htmlWebpackPlugin.options.pilists[i].name %></a></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
