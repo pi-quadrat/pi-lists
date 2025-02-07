@@ -11,8 +11,13 @@ if not exist ".node\node.exe" (
 	rmdir /q .tmp 2>nul
 )
 
+setlocal
+set PATH=%PATH%;.node
+
 echo ^>npm install
-call .node\npm.cmd install || pause
+call npm install || pause
 
 echo ^>npm run dev
-call .node\npm.cmd run dev || pause
+call npm run dev || pause
+
+endlocal
